@@ -1,0 +1,15 @@
+import time
+import time
+
+file_changes = []
+def recent_files():
+    current_time = time.time()
+    file_changes.append(current_time)
+
+    # Keep last 10 seconds
+    recent = [t for t in file_changes if current_time - t < 10]
+    return recent
+
+if len(recent_files()) > 10:
+    print("⚠️ Ransomware Detected!")
+    backup_files()
